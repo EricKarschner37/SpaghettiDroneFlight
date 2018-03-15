@@ -1,14 +1,17 @@
 import libardrone
 import xbox
 
-joy = xbox.Joystick()  # Initialize joystick
+joy = xbox.Joystick();  # Initialize joystick
 drone = libardrone.ARDrone();
 
 while(True):
     if joy.A():
         drone.takeoff();
+        print("A button pressed!")
     if joy.B():
         drone.land();
+    if joy.Y():
+        drone.hover();
     if joy.leftX() < 0:
         drone.move_left();
     if joy.leftX() > 0:
@@ -25,3 +28,5 @@ while(True):
         drone.move_down();
     if joy.rightY() > 0:
         drone.move_up();
+    if joy.Guide() and joy.Start():
+        drone.reset();
