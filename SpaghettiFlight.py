@@ -1,5 +1,6 @@
 import libardrone
 import xbox
+import arvideo
 
 joy = xbox.Joystick();  # Initialize joystick
 drone = libardrone.ARDrone();
