@@ -1,18 +1,17 @@
-import libardrone
 import xbox
-import arvideo
+import ps_drone
 
-joy = xbox.Joystick();  # Initialize joystick
-drone = libardrone.ARDrone();
+joy = xbox.Joystick()  # Initialize joystick
+drone = ps_drone.Drone()
 
 while(True):
     if joy.A():
-        drone.takeoff();
+        drone.takeoff()
     #     print("A button pressed!")
     if joy.B():
-        drone.land();
+        drone.land()
     if joy.Y():
-        drone.hover();
+        drone.hover()
 
     drone.move(joy.leftX(), joy.leftY(), joy.rightTrigger() - joy.leftTrigger(), joy.rightX());
 
